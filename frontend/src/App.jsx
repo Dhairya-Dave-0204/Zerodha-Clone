@@ -1,17 +1,18 @@
-import './App.css'
-// import { Route, Routes } from 'react-router-dom'
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { Navbar, Footer } from "./components/component_index";
+import { Home } from "./pages/page_index";
 
 function App() {
-
   return (
     <>
-      {/* <Routes>
-
-      </Routes> */}
-
-      <h1 className='text-4xl text-indigo-500 font-poppins'>Heeloo!!!</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
