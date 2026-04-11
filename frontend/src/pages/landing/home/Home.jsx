@@ -1,5 +1,12 @@
-import React from 'react'
-import { Hero, Awards, Stats, Pricing, Education, OpenAccount } from "../../../components/component_index"
+import React from "react";
+import {
+  Hero,
+  Awards,
+  Stats,
+  Pricing,
+  Education,
+  OpenAccount,
+} from "../../../components/component_index";
 
 function Home() {
   return (
@@ -11,7 +18,7 @@ function Home() {
       <Education />
       <OpenAccount />
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

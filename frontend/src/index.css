@@ -1,5 +1,68 @@
 @import "tailwindcss";
 
 @theme {
-    --font-poppins: "Poppins", sans-serif
+    --color-primary: #006FB6;
+    --color-secondary: #5CA2EE;
+    --color-primary-text: #693E00;
+    --color-secondary-text: #718EE2;
+    --color--background: #DCF2FF;
+}
+
+/* Morning Dawn: The two brightest blues */
+.bg-2tone-1 {
+  background: linear-gradient(135deg, #5ca2ee 0%, #006fb6 100%);
+}
+
+/* Sky Transition: Bright blue to soft background */
+.bg-2tone-2 {
+  background: linear-gradient(to right, #5ca2ee 0%, #dcf2ff 100%);
+}
+
+/* Professional Depth: The vibrant blue to deep warm brown */
+.bg-2tone-3 {
+  background: linear-gradient(135deg, #006fb6 0%, #693e00 100%);
+}
+
+/* Modern Contrast: The periwinkle to deep ocean */
+.bg-2tone-4 {
+  background: linear-gradient(135deg, #718ee2 0%, #006fb6 100%);
+}
+
+/* Accent Soft: The warm coffee fading to light sky */
+.bg-2tone-5 {
+  background: linear-gradient(to right, #693e00 0%, #dcf2ff 100%);
+}
+
+/* Clear Horizon: From bright accent to deep blue to soft background */
+.bg-3tone-1 {
+  background: linear-gradient(to right, #5ca2ee 0%, #006fb6 50%, #dcf2ff 100%);
+}
+
+/* Warm Afternoon: Starts bright blue, dips into coffee warmth, fades to light */
+.bg-3tone-2 {
+  background: linear-gradient(to right, #5ca2ee 0%, #693e00 50%, #dcf2ff 100%);
+}
+
+/* Evening Sky: The deepest combination for sophisticated depth */
+.bg-3tone-3 {
+  background: linear-gradient(135deg, #718ee2 0%, #006fb6 50%, #693e00 100%);
+}
+
+/* Focused Highlight: A central burst of bright blue with deep ocean edges */
+.bg-3tone-4 {
+  background: linear-gradient(to right, #006fb6 0%, #5ca2ee 50%, #006fb6 100%);
+}
+
+/* Layered Spectrum: Complete view from warm brown to the lightest sky tint */
+.bg-3tone-5 {
+  background: linear-gradient(to right, #693e00 0%, #006fb6 50%, #dcf2ff 100%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 2rem;
 }
