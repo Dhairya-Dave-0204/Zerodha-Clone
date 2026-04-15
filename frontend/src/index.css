@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #006FB6;
-    --color-secondary: #5CA2EE;
-    --color-primary-text: #693E00;
-    --color-secondary-text: #718EE2;
-    --color--background: #DCF2FF;
+  --color-primary: #006fb6;
+  --color-secondary: #5ca2ee;
+  --color-primary-text: #693e00;
+  --color-secondary-text: #718ee2;
+  --color--background: #dcf2ff;
 }
 
 /* Morning Dawn: The two brightest blues */
@@ -59,10 +59,9 @@
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    box-sizing: border-box;
-    padding: 2rem;
+  box-sizing: border-box;
 }

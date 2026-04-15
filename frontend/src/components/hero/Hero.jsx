@@ -2,7 +2,7 @@ import { homeHero } from "../../assets/assets";
 
 function Hero() {
   return (
-    <div className="px-4 py-8 sm:px-6 md:px-10 lg:px-16">
+    <div className="px-4 py-8 mt-20 sm:px-6 md:px-10 lg:px-16">
       <div className="mx-auto text-center">
         <img
           src={homeHero}
