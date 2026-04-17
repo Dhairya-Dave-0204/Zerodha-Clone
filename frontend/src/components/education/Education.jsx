@@ -2,7 +2,7 @@ import { education } from "../../assets/assets";
 
 function Education() {
   return (
-    <div className="px-4 py-12 mt-12 sm:mt-20 md:mt-24 sm:px-6 md:px-10 lg:px-16">
+    <div className="px-4 py-12 mt-10 sm:mt-16 sm:px-6 md:px-10 lg:px-16">
       <div className="grid items-center grid-cols-1 gap-12 mx-auto max-w-328 lg:grid-cols-2 lg:gap-16">
         {/* Image */}
         <div className="flex justify-center order-2 lg:order-1">

@@ -14,7 +14,7 @@ function Home() {
       <Hero />
       <Awards />
       <Stats />
-      <Pricing />
+      {/* <Pricing /> */}
       <Education />
       <OpenAccount />
     </>
