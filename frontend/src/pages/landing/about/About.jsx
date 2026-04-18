@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { AboutHero, Teams } from "../../../components/component_index";
 
 function About() {
   return (
-    <div>About</div>
-  )
+    <>
+      <AboutHero />
+      <Teams />
+    </>
+  );
 }
 
-export default About
+export default About;
