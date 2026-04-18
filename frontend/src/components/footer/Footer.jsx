@@ -107,26 +107,21 @@ function Footer() {
 
   return (
     <footer className="mt-20 text-sm text-gray-600 bg-white border-t border-gray-200 lg:mt-24">
-      {/* ── Top section: logo + social + app badges + link columns ── */}
       <div className="px-6 py-12 mx-auto max-w-7xl md:px-10 lg:px-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-6">
-          {/* Brand block — spans 2 cols on lg */}
           <div className="flex flex-col gap-6 lg:col-span-2">
-            {/* Logo */}
             <img
               src="https://zerodha.com/static/images/logo.svg"
               alt="Zerodha"
               className="w-28"
             />
 
-            {/* Copyright */}
             <p className="text-xs leading-relaxed text-gray-500">
               © 2010 – 2026, Zerodha Broking Ltd.
               <br />
               All rights reserved.
             </p>
 
-            {/* Social icons */}
             <div className="flex items-center gap-4">
               <a
                 href="https://x.com/zerodha"
@@ -167,7 +162,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Link columns — each gets 1 col on lg */}
           {linkColumns.map((col) => (
             <div key={col.heading} className="flex flex-col gap-3">
               <h3 className="mb-1 text-sm font-semibold text-gray-900">
@@ -192,7 +186,6 @@ function Footer() {
         </div>
       </div>
 
-      {/* ── Regulatory disclaimer block ── */}
       <div className="px-6 py-8 mx-auto space-y-4 text-xs leading-relaxed text-gray-400 max-w-7xl md:px-10 lg:px-16">
         <p>
           Zerodha Broking Ltd.: Member of NSE, BSE, MCX &amp; MSEI – SEBI
@@ -326,10 +319,8 @@ function Footer() {
         </p>
       </div>
 
-      {/* ── Divider ── */}
       <div className="border-t border-gray-200" />
 
-      {/* ── Bottom link bar ── */}
       <div className="px-6 py-5 mx-auto max-w-7xl md:px-10 lg:px-16">
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
           {bottomLinks.map((link) => (
