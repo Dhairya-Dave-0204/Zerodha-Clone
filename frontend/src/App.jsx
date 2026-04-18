@@ -9,11 +9,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<About />} />
-        <Route path="/" element={<Pricing />} />
-        <Route path="/" element={<Products />} />
-        <Route path="/" element={<Support />} />
-        <Route path="/" element={<Signup />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </>
