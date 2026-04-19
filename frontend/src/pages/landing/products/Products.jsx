@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import {
+  productHero,
+  ProductLeft,
+  ProductRight,
+  Universe,
+} from "../../../components/component_index";
 
 function Products() {
   return (
-    <div>Products</div>
-  )
+    <>
+      <productHero />
+      <ProductLeft />
+      <ProductRight />
+      <Universe />
+    </>
+  );
 }
 
-export default Products
+export default Products;
