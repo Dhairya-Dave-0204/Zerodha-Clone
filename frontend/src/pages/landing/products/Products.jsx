@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  productHero,
+  ProductHero,
   ProductLeft,
   ProductRight,
   Universe,
@@ -9,7 +9,7 @@ import {
 function Products() {
   return (
     <>
-      <productHero />
+      <ProductHero />
       <ProductLeft />
       <ProductRight />
       <Universe />
