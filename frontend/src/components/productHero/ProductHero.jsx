@@ -11,7 +11,7 @@ function ProductHero() {
         <p className="mt-4">Check out our <span className="text-blue-700">investment offerings →</span></p>
       </div>
 
-      <div className="w-full mx-auto mt-10 border-t border-gray-200 lg:mt-16 sm:mt-20 2xl:w-7xl" />
+      <div className="w-full mx-auto mt-10 border-t border-gray-200 sm:mt-16 2xl:w-7xl" />
     </div>
   );
 }
