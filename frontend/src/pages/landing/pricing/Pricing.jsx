@@ -1,8 +1,12 @@
 import React from 'react'
+import { PricingHero, Brokerage } from "../../../components/component_index"
 
 function Pricing() {
   return (
-    <div>Pricing</div>
+    <>
+      <PricingHero />
+      <Brokerage />
+    </>
   )
 }
 
