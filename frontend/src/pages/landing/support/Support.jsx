@@ -1,8 +1,12 @@
 import React from 'react'
+import { SupportHero, RaiseTicket } from "../../../components/component_index"
 
 function Support() {
   return (
-    <div>Support</div>
+    <>
+      <SupportHero />
+      <RaiseTicket />
+    </>
   )
 }
 
