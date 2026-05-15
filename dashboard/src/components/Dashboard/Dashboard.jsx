@@ -12,9 +12,9 @@ import {
 
 function Dashboard() {
   return (
-    <div>
+    <div className="dashboard-container">
     <WatchList />
-      <div>
+      <div className="content">
         <Routes>
           <Route path="/" element={<Summary />} />
           <Route path="/orders" element={<Orders />} />
