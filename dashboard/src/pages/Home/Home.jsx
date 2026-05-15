@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Dashboard, TopBar } from "../../components/component_index";
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+      <Dashboard />
+      <TopBar />
+    </>
+  );
 }
 
-export default Home
+export default Home;
