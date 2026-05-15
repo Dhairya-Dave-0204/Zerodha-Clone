@@ -18,12 +18,8 @@ const Menu = () => {
 
   return (
     <div className="relative flex items-center justify-between w-full">
-      {/* Left Section */}
         <img src={Logo} alt="Logo" className="object-contain w-10 cursor-pointer sm:w-12" />
       <div className="flex items-center gap-4 lg:gap-8">
-        {/* Logo */}
-
-        {/* Desktop Menu */}
         <div className="hidden md:block">
           <ul className="flex items-center gap-5 lg:gap-8">
             <li>
@@ -125,12 +121,9 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* Right Section */}
       <div className="flex items-center gap-4">
-        {/* Divider */}
         <div className="hidden w-px h-6 bg-gray-300 md:block"></div>
 
-        {/* Profile */}
         <div
           className="flex items-center gap-3 cursor-pointer"
           onClick={handleProfileClick}
@@ -144,7 +137,6 @@ const Menu = () => {
           </p>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -153,7 +145,6 @@ const Menu = () => {
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
       {isMobileMenuOpen && (
         <div className="absolute left-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm top-16 md:hidden">
           <ul className="flex flex-col px-4 py-4">

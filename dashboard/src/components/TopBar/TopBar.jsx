@@ -6,11 +6,8 @@ const TopBar = () => {
     <div className="w-full bg-white border-b border-gray-200">
       
       <div className="flex items-center justify-between h-16 px-4 sm:px-6 md:px-8 lg:px-10">
-
-        {/* Left Section */}
         <div className="items-center hidden gap-8 md:flex lg:gap-10">
 
-          {/* NIFTY */}
           <div className="flex items-center gap-3">
             <p className="text-xs font-medium tracking-wide text-gray-700">
               NIFTY 50
@@ -25,7 +22,6 @@ const TopBar = () => {
             </p>
           </div>
 
-          {/* SENSEX */}
           <div className="flex items-center gap-3">
             <p className="text-xs font-medium tracking-wide text-gray-700">
               SENSEX
@@ -42,10 +38,8 @@ const TopBar = () => {
 
         </div>
 
-        {/* Divider */}
         <div className="hidden w-px h-16 mx-6 bg-gray-200 md:block"></div>
 
-        {/* Right Section */}
         <div className="flex-1">
           <Menu />
         </div>
