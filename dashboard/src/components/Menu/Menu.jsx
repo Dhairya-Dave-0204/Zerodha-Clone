@@ -18,7 +18,11 @@ const Menu = () => {
 
   return (
     <div className="relative flex items-center justify-between w-full">
-        <img src={Logo} alt="Logo" className="object-contain w-10 cursor-pointer sm:w-12" />
+      <img
+        src={Logo}
+        alt="Logo"
+        className="object-contain w-10 cursor-pointer sm:w-12"
+      />
       <div className="flex items-center gap-4 lg:gap-8">
         <div className="hidden md:block">
           <ul className="flex items-center gap-5 lg:gap-8">
@@ -122,7 +126,6 @@ const Menu = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="hidden w-px h-6 bg-gray-300 md:block"></div>
 
         <div
           className="flex items-center gap-3 cursor-pointer"
