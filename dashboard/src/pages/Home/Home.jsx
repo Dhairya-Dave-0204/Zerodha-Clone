@@ -4,8 +4,8 @@ import { Dashboard, TopBar } from "../../components/component_index";
 function Home() {
   return (
     <>
-      <Dashboard />
       <TopBar />
+      <Dashboard />
     </>
   );
 }

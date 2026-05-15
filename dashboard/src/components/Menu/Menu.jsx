@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Logo } from "../../assets/assets";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -17,21 +18,14 @@ const Menu = () => {
 
   return (
     <div className="relative flex items-center justify-between w-full">
-
       {/* Left Section */}
+        <img src={Logo} alt="Logo" className="object-contain w-10 cursor-pointer sm:w-12" />
       <div className="flex items-center gap-4 lg:gap-8">
-
         {/* Logo */}
-        <img
-          src="logo.png"
-          alt="Logo"
-          className="object-contain w-10 sm:w-12"
-        />
 
         {/* Desktop Menu */}
         <div className="hidden md:block">
           <ul className="flex items-center gap-5 lg:gap-8">
-
             <li>
               <Link
                 to="/"
@@ -40,9 +34,7 @@ const Menu = () => {
               >
                 <p
                   className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 0
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 0 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Dashboard
@@ -58,9 +50,7 @@ const Menu = () => {
               >
                 <p
                   className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 1
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 1 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Orders
@@ -76,9 +66,7 @@ const Menu = () => {
               >
                 <p
                   className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 2
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 2 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Holdings
@@ -94,9 +82,7 @@ const Menu = () => {
               >
                 <p
                   className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 3
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 3 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Positions
@@ -112,9 +98,7 @@ const Menu = () => {
               >
                 <p
                   className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 4
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 4 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Funds
@@ -130,23 +114,19 @@ const Menu = () => {
               >
                 <p
                   className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 5
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 5 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Apps
                 </p>
               </Link>
             </li>
-
           </ul>
         </div>
       </div>
 
       {/* Right Section */}
       <div className="flex items-center gap-4">
-
         {/* Divider */}
         <div className="hidden w-px h-6 bg-gray-300 md:block"></div>
 
@@ -171,15 +151,12 @@ const Menu = () => {
         >
           <i className="text-2xl text-gray-700 ri-menu-line"></i>
         </button>
-
       </div>
 
       {/* Mobile Dropdown */}
       {isMobileMenuOpen && (
         <div className="absolute left-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm top-16 md:hidden">
-
           <ul className="flex flex-col px-4 py-4">
-
             <li>
               <Link
                 to="/"
@@ -188,9 +165,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 0
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 0 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Dashboard
@@ -206,9 +181,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 1
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 1 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Orders
@@ -224,9 +197,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 2
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 2 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Holdings
@@ -242,9 +213,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 3
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 3 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Positions
@@ -260,9 +229,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 4
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 4 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Funds
@@ -278,16 +245,13 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium hover:text-primary ${
-                    selectedMenu === 5
-                      ? "text-primary"
-                      : "text-gray-600"
+                    selectedMenu === 5 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Apps
                 </p>
               </Link>
             </li>
-
           </ul>
         </div>
       )}
