@@ -13,7 +13,7 @@ const Menu = () => {
   };
 
   const handleProfileClick = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    setIsProfileDropdownOpen((prev) => !prev);
   };
 
   return (
