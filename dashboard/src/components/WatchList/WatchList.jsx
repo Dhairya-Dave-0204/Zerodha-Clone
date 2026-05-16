@@ -11,8 +11,11 @@ import { watchlist } from "../../data/data";
 
 const WatchList = () => {
   return (
-    <div className="h-full overflow-y-auto bg-white border-l border-gray-200 w-xl">
+    <div className="hidden h-full overflow-y-auto bg-white border-l border-gray-200 lg:block w-xl">
+      
+      {/* Search */}
       <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-4 bg-white border-b border-gray-200">
+        
         <input
           type="text"
           name="search"
@@ -24,12 +27,21 @@ const WatchList = () => {
         <span className="ml-4 text-xs font-medium text-gray-400 whitespace-nowrap">
           {watchlist.length} / 50
         </span>
+
       </div>
 
+      {/* Watchlist */}
       <ul className="pb-10">
+
         {watchlist.map((stock, index) => {
-          return <WatchListItem stock={stock} key={index} />;
+          return (
+            <WatchListItem
+              stock={stock}
+              key={index}
+            />
+          );
         })}
+
       </ul>
     </div>
   );
@@ -37,8 +49,10 @@ const WatchList = () => {
 
 export default WatchList;
 
+
 const WatchListItem = ({ stock }) => {
-  const [showWatchlistActions, setShowWatchlistActions] = useState(false);
+  const [showWatchlistActions, setShowWatchlistActions] =
+    useState(false);
 
   return (
     <li
@@ -46,19 +60,26 @@ const WatchListItem = ({ stock }) => {
       onMouseEnter={() => setShowWatchlistActions(true)}
       onMouseLeave={() => setShowWatchlistActions(false)}
     >
+
       <div className="flex items-center justify-between">
+
         <p
           className={`text-sm font-medium ${
-            stock.isDown ? "text-red-500" : "text-green-500"
+            stock.isDown
+              ? "text-red-500"
+              : "text-green-500"
           }`}
         >
           {stock.name}
         </p>
 
         <div className="flex items-center gap-3">
+
           <span
             className={`text-xs font-medium ${
-              stock.isDown ? "text-red-500" : "text-green-500"
+              stock.isDown
+                ? "text-red-500"
+                : "text-green-500"
             }`}
           >
             {stock.percent}
@@ -72,37 +93,45 @@ const WatchListItem = ({ stock }) => {
 
           <span
             className={`text-sm font-medium ${
-              stock.isDown ? "text-red-500" : "text-green-500"
+              stock.isDown
+                ? "text-red-500"
+                : "text-green-500"
             }`}
           >
             {stock.price}
           </span>
+
         </div>
       </div>
 
-      {showWatchlistActions && <WatchListActions />}
+      {showWatchlistActions && (
+        <WatchListActions />
+      )}
+
     </li>
   );
 };
 
 const WatchListActions = () => {
   return (
-    <div className="absolute inset-0 flex items-center justify-end gap-2 px-4 bg-white/95">
-      <button className="px-3 py-1 text-xs font-medium text-white duration-200 rounded bg-primary hover:opacity-90">
+    <div className="absolute flex items-center gap-2 pl-3 -translate-y-1/2 bg-white top-1/2 right-4">
+
+      <button className="px-3 py-1 text-xs font-medium text-white duration-200 rounded cursor-pointer bg-primary hover:opacity-90">
         Buy
       </button>
 
-      <button className="px-3 py-1 text-xs font-medium text-white duration-200 bg-orange-500 rounded hover:bg-orange-400">
+      <button className="px-3 py-1 text-xs font-medium text-white duration-200 bg-orange-500 rounded cursor-pointer hover:bg-orange-400">
         Sell
       </button>
 
-      <button className="flex items-center justify-center w-8 h-8 duration-200 bg-white border border-gray-300 rounded hover:bg-gray-100">
+      <button className="flex items-center justify-center w-8 h-8 duration-200 bg-white border border-gray-300 rounded cursor-pointer hover:bg-gray-100">
         <BarChartOutlined className="text-gray-600! text-base!" />
       </button>
 
-      <button className="flex items-center justify-center w-8 h-8 duration-200 bg-white border border-gray-300 rounded hover:bg-gray-100">
+      <button className="flex items-center justify-center w-8 h-8 duration-200 bg-white border border-gray-300 rounded cursor-pointer hover:bg-gray-100">
         <MoreHoriz className="text-gray-600! text-base!" />
       </button>
+
     </div>
   );
 };
