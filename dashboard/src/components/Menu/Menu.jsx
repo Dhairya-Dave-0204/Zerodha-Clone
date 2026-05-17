@@ -24,7 +24,7 @@ const Menu = () => {
         className="object-contain w-10 cursor-pointer sm:w-12"
       />
       <div className="flex items-center gap-4 lg:gap-8">
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <ul className="flex items-center gap-5 lg:gap-8">
             <li>
               <Link
@@ -38,22 +38,6 @@ const Menu = () => {
                   }`}
                 >
                   Dashboard
-                </p>
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/watchlist"
-                onClick={() => handleMenuClick(4)}
-                className="no-underline"
-              >
-                <p
-                  className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
-                    selectedMenu === 4 ? "text-primary" : "text-gray-600"
-                  }`}
-                >
-                  Watchlist
                 </p>
               </Link>
             </li>
@@ -157,7 +141,7 @@ const Menu = () => {
         </div>
 
         <button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <i className="text-2xl text-gray-700 ri-menu-line"></i>
@@ -165,7 +149,7 @@ const Menu = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="absolute left-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm top-16 md:hidden">
+        <div className="absolute left-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm top-16 lg:hidden">
           <ul className="flex flex-col px-4 py-4">
             <li>
               <Link
@@ -179,6 +163,22 @@ const Menu = () => {
                   }`}
                 >
                   Dashboard
+                </p>
+              </Link>
+            </li>
+            
+            <li>
+              <Link
+                to="/watchlist"
+                onClick={() => handleMenuClick(4)}
+                className="no-underline"
+              >
+                <p
+                  className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
+                    selectedMenu === 0 ? "text-primary" : "text-gray-600"
+                  }`}
+                >
+                  Watchlist
                 </p>
               </Link>
             </li>
