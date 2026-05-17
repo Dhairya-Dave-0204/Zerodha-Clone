@@ -17,7 +17,7 @@ function Dashboard() {
         <WatchList />
       </div>
 
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 px-6 py-6 overflow-y-auto lg:px-10 lg:py-8">
         <Routes>
           <Route path="/" element={<Summary />} />
           <Route path="/watchlist" element={<WatchList />} />
