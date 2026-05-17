@@ -44,6 +44,22 @@ const Menu = () => {
 
             <li>
               <Link
+                to="/watchlist"
+                onClick={() => handleMenuClick(4)}
+                className="no-underline"
+              >
+                <p
+                  className={`text-sm font-medium duration-200 cursor-pointer hover:text-primary ${
+                    selectedMenu === 4 ? "text-primary" : "text-gray-600"
+                  }`}
+                >
+                  Watchlist
+                </p>
+              </Link>
+            </li>
+
+            <li>
+              <Link
                 to="/orders"
                 onClick={() => handleMenuClick(1)}
                 className="no-underline"
