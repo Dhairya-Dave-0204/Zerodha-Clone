@@ -175,7 +175,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 0 ? "text-primary" : "text-gray-600"
+                    selectedMenu === 1 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Watchlist
@@ -191,7 +191,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 1 ? "text-primary" : "text-gray-600"
+                    selectedMenu === 2 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Orders
@@ -207,7 +207,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 2 ? "text-primary" : "text-gray-600"
+                    selectedMenu === 3 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Holdings
@@ -223,7 +223,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 3 ? "text-primary" : "text-gray-600"
+                    selectedMenu === 4 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Positions
@@ -239,7 +239,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium border-b border-gray-100 hover:text-primary ${
-                    selectedMenu === 4 ? "text-primary" : "text-gray-600"
+                    selectedMenu === 5 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Funds
@@ -255,7 +255,7 @@ const Menu = () => {
               >
                 <p
                   className={`py-3 text-sm font-medium hover:text-primary ${
-                    selectedMenu === 5 ? "text-primary" : "text-gray-600"
+                    selectedMenu === 6 ? "text-primary" : "text-gray-600"
                   }`}
                 >
                   Apps

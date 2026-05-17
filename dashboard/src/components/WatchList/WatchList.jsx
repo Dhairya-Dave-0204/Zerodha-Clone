@@ -13,7 +13,6 @@ const WatchList = () => {
   return (
     <div className="w-full h-full min-h-screen overflow-y-auto bg-white border-l border-gray-200 lg:w-xl lg:min-h-0">
       
-      {/* Search */}
       <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-4 bg-white border-b border-gray-200">
         
         <input
@@ -30,7 +29,6 @@ const WatchList = () => {
 
       </div>
 
-      {/* Watchlist */}
       <ul className="pb-10">
 
         {watchlist.map((stock, index) => {
@@ -48,8 +46,6 @@ const WatchList = () => {
 };
 
 export default WatchList;
-
-/* ========================= */
 
 const WatchListItem = ({ stock }) => {
   const [showWatchlistActions, setShowWatchlistActions] =
@@ -87,9 +83,9 @@ const WatchListItem = ({ stock }) => {
           </span>
 
           {stock.isDown ? (
-            <KeyboardArrowDown className="!text-red-500 !text-lg" />
+            <KeyboardArrowDown className="text-lg text-red-500" />
           ) : (
-            <KeyboardArrowUp className="!text-green-500 !text-lg" />
+            <KeyboardArrowUp className="text-lg text-green-500" />
           )}
 
           <span
@@ -113,8 +109,6 @@ const WatchListItem = ({ stock }) => {
   );
 };
 
-/* ========================= */
-
 const WatchListActions = () => {
   return (
     <div className="absolute flex items-center gap-2 pl-3 -translate-y-1/2 bg-white top-1/2 right-4">
@@ -128,11 +122,11 @@ const WatchListActions = () => {
       </button>
 
       <button className="flex items-center justify-center w-8 h-8 duration-200 bg-white border border-gray-300 rounded cursor-pointer hover:bg-gray-100">
-        <BarChartOutlined className="!text-gray-600 !text-base" />
+        <BarChartOutlined className="text-base text-gray-600" />
       </button>
 
       <button className="flex items-center justify-center w-8 h-8 duration-200 bg-white border border-gray-300 rounded cursor-pointer hover:bg-gray-100">
-        <MoreHoriz className="!text-gray-600 !text-base" />
+        <MoreHoriz className="text-base text-gray-600" />
       </button>
 
     </div>
