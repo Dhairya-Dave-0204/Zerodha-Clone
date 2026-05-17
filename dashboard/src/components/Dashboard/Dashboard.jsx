@@ -12,9 +12,12 @@ import {
 
 function Dashboard() {
   return (
-    <div className="dashboard-container">
-    <WatchList />
-      <div className="content">
+    <div className="flex h-[calc(100vh-64px)]">
+      <div className="hidden lg:block">
+        <WatchList />
+      </div>
+
+      <div className="flex-1 overflow-y-auto">
         <Routes>
           <Route path="/" element={<Summary />} />
           <Route path="/watchlist" element={<WatchList />} />
