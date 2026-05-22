@@ -6,6 +6,20 @@ dotenv.config({
   path: "./.env",
 });
 
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT EXCEPTION!");
+  console.error(err);
+
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("UNHANDLED REJECTION!");
+  console.error(err);
+
+  process.exit(1);
+});
+
 connectDB()
   .then(() => {
     const PORT = process.env.PORT || 3000;
