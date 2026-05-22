@@ -24,4 +24,8 @@ app.get("/", (req, res) => {
     res.send("Hello")
 })
 
+import healthRouter from "./routes/healthCheck.route.js"
+
+app.use("/api/v1/healthCheck", healthRouter)
+
 export { app }
