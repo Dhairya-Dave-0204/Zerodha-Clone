@@ -1,31 +1,33 @@
-import "dotenv/config"
-import express from "express"
-import cors from "cors"
-import { ApiError } from "./utils/ApiError.js"
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import { ApiError } from "./utils/ApiError.js";
 
-const app = express()
+const app = express();
 
-const corsOrigin = process.env.CORS_ORIGIN
+const corsOrigin = process.env.CORS_ORIGIN;
 
 if (!corsOrigin) {
-    throw new Error("CORS_ORIGIN missing in environment variables");
+  throw new Error("CORS_ORIGIN missing in environment variables");
 }
 
-app.use(cors({
+app.use(
+  cors({
     origin: corsOrigin,
-    credentials: true
-}))
+    credentials: true,
+  }),
+);
 
-app.use(express.json({ limit: "16kb" }))
+app.use(express.json({ limit: "16kb" }));
 
-app.use(express.urlencoded({ extended: true, limit: "16kb" }))
+app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
 app.get("/", (req, res) => {
-    res.send("Hello")
-})
+  res.send("Hello");
+});
 
-import healthRouter from "./routes/healthCheck.route.js"
+import healthRouter from "./routes/healthCheck.route.js";
 
-app.use("/api/v1/healthCheck", healthRouter)
+app.use("/api/v1/healthCheck", healthRouter);
 
-export { app }
+export { app };
