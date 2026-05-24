@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 // import { holdings } from "../../data/data";
 
 const Holdings = () => {
-  const [holdings, setHoldings] = useState([])
+  const [holdings, setHoldings] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/v1/holdings/all").then((res) => {
-      console.log(res.data)
-    })
-  }, [])
-  
+
+      if (!res.data.data.length > 0) {
+        console.error("Error in getting the holdings data from the backend");
+      }
+
+      setHoldings(res.data.data)
+    });
+  }, []);
+
   const labels = holdings.map((stock) => stock.name);
 
   const data = {
@@ -25,12 +30,12 @@ const Holdings = () => {
   };
 
   const totalInvestment = holdings.reduce(
-    (total, stock) => total + stock.avg * stock.qty,
+    (total, stock) => total + stock.average * stock.quantity,
     0,
   );
 
   const currentValue = holdings.reduce(
-    (total, stock) => total + stock.price * stock.qty,
+    (total, stock) => total + stock.price * stock.quantity,
     0,
   );
 
@@ -84,9 +89,9 @@ const Holdings = () => {
 
           <tbody>
             {holdings.map((stock, index) => {
-              const curValue = stock.price * stock.qty;
+              const curValue = stock.price * stock.quantity;
 
-              const isProfit = curValue - stock.avg * stock.qty >= 0.0;
+              const isProfit = curValue - stock.average * stock.quantity >= 0.0;
 
               const profitClass = isProfit ? "text-green-500" : "text-red-500";
 
@@ -102,11 +107,11 @@ const Holdings = () => {
                   </td>
 
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
-                    {stock.qty}
+                    {stock.quantity}
                   </td>
 
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
-                    {stock.avg.toFixed(2)}
+                    {stock.average.toFixed(2)}
                   </td>
 
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
@@ -120,7 +125,7 @@ const Holdings = () => {
                   <td
                     className={`px-4 py-4 text-sm whitespace-nowrap ${profitClass}`}
                   >
-                    {(curValue - stock.avg * stock.qty).toFixed(2)}
+                    {(curValue - stock.average * stock.quantity).toFixed(2)}
                   </td>
 
                   <td
