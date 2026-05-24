@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 // import { positions } from "../../data/data";
 
 const Positions = () => {
-  const [positions, setPositions] = useState([])
+  const [positions, setPositions] = useState([]);
 
-  useEffect(async () => {
-    await axios.get("http://localhost:8000/api/v1/positions/all").then((res) => {
-      if (!res.data.data.length > 0) {
-        console.error("Error in getting the positions data!")
-      }
+  useEffect(() => {
+    try {
+      axios.get("http://localhost:8000/api/v1/positions/all").then((res) => {
+        if (res.data.data.length == 0) {
+          console.error("Error in getting the positions data!");
+        }
 
-      setPositions(res.data.data)
-    })
-  }, [])
-  
+        setPositions(res.data.data);
+      });
+    } catch (error) {
+      console.error(" An error occurred in positions fetch", error);
+    }
+  }, []);
+
   return (
     <div className="w-full">
       <h3 className="mb-8 text-2xl font-normal text-gray-700">
@@ -67,7 +71,7 @@ const Positions = () => {
 
               return (
                 <tr
-                  key={index}
+                  key={stock._id}
                   className="border-b border-gray-100 hover:bg-gray-50"
                 >
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">

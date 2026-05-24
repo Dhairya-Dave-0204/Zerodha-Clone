@@ -5,15 +5,18 @@ import axios from "axios";
 const Holdings = () => {
   const [holdings, setHoldings] = useState([]);
 
-  useEffect(async () => {
-    await axios.get("http://localhost:8000/api/v1/holdings/all").then((res) => {
+  useEffect(() => {
+    try {
+      axios.get("http://localhost:8000/api/v1/holdings/all").then((res) => {
+        if (res.data.data.length == 0) {
+          console.error("Error in getting the holdings data from the backend");
+        }
 
-      if (!res.data.data.length > 0) {
-        console.error("Error in getting the holdings data from the backend");
-      }
-
-      setHoldings(res.data.data)
-    });
+        setHoldings(res.data.data);
+      });
+    } catch (error) {
+      console.error(" An error occurred in holdings fetch", error);
+    }
   }, []);
 
   const labels = holdings.map((stock) => stock.name);
@@ -99,7 +102,7 @@ const Holdings = () => {
 
               return (
                 <tr
-                  key={index}
+                  key={stock._id}
                   className="border-b border-gray-100 hover:bg-gray-50"
                 >
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
