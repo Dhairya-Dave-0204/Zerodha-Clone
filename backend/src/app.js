@@ -27,7 +27,9 @@ app.get("/", (req, res) => {
 });
 
 import healthRouter from "./routes/healthCheck.route.js";
+import holdingsRouter from "./routes/holdings.route.js";
 
 app.use("/api/v1/healthCheck", healthRouter);
+app.use("/api/v1/holdings", holdingsRouter);
 
 export { app };
