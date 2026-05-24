@@ -1,7 +1,16 @@
-import React from "react";
-import { holdings } from "../../data/data";
+import React, { useState, useEffect } from "react";
+import axios from "axios"
+// import { holdings } from "../../data/data";
 
 const Holdings = () => {
+  const [holdings, setHoldings] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/v1/holdings/all").then((res) => {
+      console.log(res.data)
+    })
+  }, [])
+  
   const labels = holdings.map((stock) => stock.name);
 
   const data = {
