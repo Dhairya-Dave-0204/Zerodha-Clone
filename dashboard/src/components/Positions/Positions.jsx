@@ -1,7 +1,20 @@
-import React from "react";
-import { positions } from "../../data/data";
+import React, { useState, useEffect } from "react";
+import axios from "axios"
+// import { positions } from "../../data/data";
 
 const Positions = () => {
+  const [positions, setPositions] = useState([])
+
+  useEffect(async () => {
+    await axios.get("http://localhost:8000/api/v1/positions/all").then((res) => {
+      if (!res.data.data.length > 0) {
+        console.error("Error in getting the positions data!")
+      }
+
+      setPositions(res.data.data)
+    })
+  }, [])
+  
   return (
     <div className="w-full">
       <h3 className="mb-8 text-2xl font-normal text-gray-700">
@@ -44,9 +57,9 @@ const Positions = () => {
 
           <tbody>
             {positions.map((stock, index) => {
-              const curValue = stock.price * stock.qty;
+              const curValue = stock.price * stock.quantity;
 
-              const isProfit = curValue - stock.avg * stock.qty >= 0.0;
+              const isProfit = curValue - stock.average * stock.quantity >= 0.0;
 
               const profitClass = isProfit ? "text-green-500" : "text-red-500";
 
@@ -66,11 +79,11 @@ const Positions = () => {
                   </td>
 
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
-                    {stock.qty}
+                    {stock.quantity}
                   </td>
 
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
-                    {stock.avg.toFixed(2)}
+                    {stock.average.toFixed(2)}
                   </td>
 
                   <td className="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">
@@ -80,7 +93,7 @@ const Positions = () => {
                   <td
                     className={`px-4 py-4 text-sm whitespace-nowrap ${profitClass}`}
                   >
-                    {(curValue - stock.avg * stock.qty).toFixed(2)}
+                    {(curValue - stock.average * stock.quantity).toFixed(2)}
                   </td>
 
                   <td

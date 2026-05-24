@@ -5,8 +5,8 @@ import axios from "axios";
 const Holdings = () => {
   const [holdings, setHoldings] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://localhost:8000/api/v1/holdings/all").then((res) => {
+  useEffect(async () => {
+    await axios.get("http://localhost:8000/api/v1/holdings/all").then((res) => {
 
       if (!res.data.data.length > 0) {
         console.error("Error in getting the holdings data from the backend");
