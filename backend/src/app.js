@@ -28,8 +28,10 @@ app.get("/", (req, res) => {
 
 import healthRouter from "./routes/healthCheck.route.js";
 import holdingsRouter from "./routes/holdings.route.js";
+import positionsRouter from "./routes/positions.route.js";
 
 app.use("/api/v1/healthCheck", healthRouter);
 app.use("/api/v1/holdings", holdingsRouter);
+app.use("/api/v1/positions", positionsRouter);
 
 export { app };
