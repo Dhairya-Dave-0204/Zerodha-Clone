@@ -158,8 +158,17 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         ),
       );
   } catch (error) {
-    throw new ApiError(401, error?.message || "Invalid refresh token via catch")
+    throw new ApiError(
+      401,
+      error?.message || "Invalid refresh token via catch",
+    );
   }
+});
+
+const getCurrentUser = asyncHandler(async (req, res) => {
+  return res
+    .status(200)
+    .json(new ApiResponse(200, req.user, "User fetched successfully"));
 });
 
 const generateAccessAndRefreshTokens = async (userId) => {
@@ -181,4 +190,10 @@ const generateAccessAndRefreshTokens = async (userId) => {
   }
 };
 
-export { registerUser, loginUser, logoutUser };
+export {
+  registerUser,
+  loginUser,
+  logoutUser,
+  refreshAccessToken,
+  getCurrentUser,
+};
