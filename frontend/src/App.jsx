@@ -7,8 +7,8 @@ import {
   Pricing,
   Products,
   Support,
-  Signup,
   NotFound,
+  SignUp,
 } from "./pages/page_index";
 import { Toaster } from "react-hot-toast";
 
@@ -54,7 +54,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/products" element={<Products />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </>
