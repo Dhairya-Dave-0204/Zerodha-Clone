@@ -6,10 +6,10 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { User } from "../models/user.model.js";
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, fullname, password } = req.body;
+  const { username, email, fullName, password } = req.body;
 
   if (
-    [username, email, password, fullname].some((field) => field?.trim() === "")
+    [username, email, password, fullName].some((field) => field?.trim() === "")
   ) {
     throw new ApiError(400, "All fields are required");
   }
@@ -25,7 +25,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     username: username.toLowerCase(),
     email,
-    fullname,
+    fullName,
     password,
   });
 
