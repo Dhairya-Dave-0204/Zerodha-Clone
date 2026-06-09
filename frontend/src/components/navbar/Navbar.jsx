@@ -42,9 +42,9 @@ function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link to="/signup">
+            <Link to="/signin">
               <button className="px-5 py-2 ml-4 text-sm font-semibold text-white duration-300 rounded-full cursor-pointer bg-primary hover:opacity-90 hover:scale-105">
-                Sign Up
+                Sign In
               </button>
             </Link>
           </menu>
