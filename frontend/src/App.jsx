@@ -9,6 +9,7 @@ import {
   Support,
   NotFound,
   SignUp,
+  SignIn,
 } from "./pages/page_index";
 import { Toaster } from "react-hot-toast";
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/support" element={<Support />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
       <Footer />
     </>

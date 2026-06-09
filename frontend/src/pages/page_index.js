@@ -5,6 +5,7 @@ import Products from "./landing/products/Products";
 import Support from "./landing/support/Support";
 import NotFound from "./notFound/NotFound";
 import SignUp from "./SignUp/SignUp";
+import SignIn from "./SignIn/SignIn";
 
 export {
     About,
@@ -14,4 +15,5 @@ export {
     Support,
     NotFound,
     SignUp,
+    SignIn,
 }
