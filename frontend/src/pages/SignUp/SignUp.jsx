@@ -151,7 +151,7 @@ function SignUp() {
             </p>
 
             <Link
-              to="/login"
+              to="/signin"
               className="inline-block mt-2 text-sm font-medium duration-200 text-primary hover:underline"
             >
               Sign In
