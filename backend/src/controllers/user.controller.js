@@ -38,8 +38,8 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   return res
-    .status(200)
-    .json(new ApiResponse(200, createdUser, "Registration successful"));
+    .status(201)
+    .json(new ApiResponse(201, createdUser, "Registration successful"));
 });
 
 const loginUser = asyncHandler(async (req, res) => {
@@ -179,7 +179,7 @@ const generateAccessAndRefreshTokens = async (userId) => {
     const refreshToken = user.generateRefreshToken();
 
     user.refreshToken = refreshToken;
-    user.save({ validateBeforeSave: false });
+    await user.save({ validateBeforeSave: false });
 
     return { accessToken, refreshToken };
   } catch (error) {
