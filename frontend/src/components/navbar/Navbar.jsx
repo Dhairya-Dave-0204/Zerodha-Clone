@@ -4,18 +4,22 @@ import { logo } from "../../assets/assets";
 
 const navLinks = [
   {
+    id: 1,
     label: "About",
     linkRedirect: "/about",
   },
   {
+    id: 2,
     label: "Products",
     linkRedirect: "/products",
   },
   {
+    id: 3,
     label: "Pricing",
     linkRedirect: "/pricing",
   },
   {
+    id: 4,
     label: "Support",
     linkRedirect: "/support",
   },
@@ -36,7 +40,7 @@ function Navbar() {
             {navLinks.map((link) => (
               <Link
                 to={link.linkRedirect}
-                key={link}
+                key={link.id}
                 className="text-sm font-medium text-gray-600 duration-300 cursor-pointer hover:text-primary hover:scale-105"
               >
                 {link.label}
@@ -71,7 +75,7 @@ function Navbar() {
                 <Link
                   onClick={() => setIsOpen((prev) => !prev)}
                   to={link.linkRedirect}
-                  key={link}
+                  key={link.id}
                   className={`py-4 cursor-pointer flex items-center justify-between group ${
                     i !== navLinks.length - 1 ? "border-b border-gray-100" : ""
                   }`}
