@@ -76,7 +76,7 @@ function SignIn() {
 
       handleReset();
 
-      navigate("/dashboard");
+      navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
     } catch (error) {
       console.error(error);
 
