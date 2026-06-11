@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function SignIn() {
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     usernameOrEmail: "",
     password: "",
@@ -24,20 +30,69 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Backend integration comes next
-    console.log(formData);
+    const { usernameOrEmail, password } = formData;
+
+    if (!usernameOrEmail.trim()) {
+      toast.error("Username or Email is required");
+      return;
+    }
+
+    if (!password.trim()) {
+      toast.error("Password is required");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const isEmail = usernameOrEmail.includes("@");
+
+      const payload = {
+        password,
+        ...(isEmail
+          ? { email: usernameOrEmail.trim() }
+          : { username: usernameOrEmail.trim() }),
+      };
+
+      const promise = axios.post(
+        `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
+        payload,
+        {
+          withCredentials: true,
+        },
+      );
+
+      toast.promise(promise, {
+        loading: "Signing in...",
+        success: "Login successful",
+        error: "Login failed",
+      });
+
+      const response = await promise;
+
+      if (response.data.success === false) {
+        throw new Error(response.data.message);
+      }
+
+      handleReset();
+
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
+
+      toast.error(error?.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="px-4 py-10 bg-gray-50 sm:px-6 md:px-10">
       <div className="max-w-lg mx-auto">
         <div className="p-6 bg-white border border-gray-200 shadow-sm sm:p-8">
-          
           {/* Header */}
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-medium text-gray-800">
-              Welcome Back
-            </h1>
+            <h1 className="text-3xl font-medium text-gray-800">Welcome Back</h1>
 
             <p className="mt-3 text-sm text-gray-500 sm:text-base">
               Sign in to access your dashboard and portfolio.
@@ -45,10 +100,7 @@ function SignIn() {
           </div>
 
           {/* Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-5"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Username / Email */}
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-700">
@@ -85,9 +137,10 @@ function SignIn() {
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
               <button
                 type="submit"
-                className="flex-1 px-6 py-3 font-medium text-white duration-200 rounded-sm cursor-pointer bg-primary hover:opacity-90"
+                disabled={loading}
+                className="flex-1 px-6 py-3 font-medium text-white duration-200 rounded-sm cursor-pointer bg-primary hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Sign In
+                {loading ? "Signing In..." : "Sign In"}
               </button>
 
               <button
@@ -102,9 +155,7 @@ function SignIn() {
 
           {/* Footer */}
           <div className="pt-8 mt-8 text-center border-t border-gray-200">
-            <p className="text-sm text-gray-500">
-              Don't have an account?
-            </p>
+            <p className="text-sm text-gray-500">Don't have an account?</p>
 
             <Link
               to="/signup"
