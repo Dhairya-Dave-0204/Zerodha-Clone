@@ -53,9 +53,9 @@ function SignIn() {
           ? { email: usernameOrEmail.trim() }
           : { username: usernameOrEmail.trim() }),
       };
-
+      
       const promise = axios.post(
-        `${import.meta.env.VITE_API_URL}/api/v1/user/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/user/login`,
         payload,
         {
           withCredentials: true,
