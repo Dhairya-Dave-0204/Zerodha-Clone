@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/assets";
 
 const Menu = () => {
+  const { user } = useContext(AppContext);
+
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -126,17 +129,16 @@ const Menu = () => {
       </div>
 
       <div className="flex items-center gap-4">
-
         <div
           className="flex items-center gap-3 cursor-pointer"
           onClick={handleProfileClick}
         >
           <div className="flex items-center justify-center w-8 h-8 text-xs font-medium text-purple-500 bg-purple-100 rounded-full">
-            ZU
+            {user?.username?.charAt(0)?.toUpperCase() || "U"}
           </div>
 
           <p className="hidden text-sm font-medium text-gray-700 sm:block">
-            USERID
+            {user?.username || "User"}
           </p>
         </div>
 
@@ -166,7 +168,7 @@ const Menu = () => {
                 </p>
               </Link>
             </li>
-            
+
             <li>
               <Link
                 to="/watchlist"
@@ -264,6 +266,83 @@ const Menu = () => {
             </li>
           </ul>
         </div>
+      )}
+
+      {isProfileDropdownOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 z-[999] bg-black/40 backdrop-blur-[2px]"
+            onClick={() => setIsProfileDropdownOpen(false)}
+          />
+
+          {/* Modal */}
+          <div className="fixed top-1/2 left-1/2 z-[1000] w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2">
+            <div className="p-6 bg-white border border-gray-200 shadow-xl rounded-xl sm:p-8">
+              {/* Header */}
+              <div className="text-center">
+                <div className="flex items-center justify-center w-20 h-20 mx-auto text-3xl font-semibold text-purple-500 bg-purple-100 rounded-full">
+                  {user?.username?.charAt(0)?.toUpperCase() || "U"}
+                </div>
+
+                <h2 className="mt-4 text-2xl font-semibold text-gray-800">
+                  {user?.fullName || "User"}
+                </h2>
+
+                <p className="mt-1 text-sm text-gray-500">
+                  @{user?.username || "username"}
+                </p>
+              </div>
+
+              {/* User Info */}
+              <div className="pt-6 mt-6 space-y-5 border-t border-gray-200">
+                <div>
+                  <p className="text-xs font-medium tracking-wider text-gray-400 uppercase">
+                    Email
+                  </p>
+
+                  <p className="mt-1 text-gray-700">{user?.email || "-"}</p>
+                </div>
+
+                <div>
+                  <p className="text-xs font-medium tracking-wider text-gray-400 uppercase">
+                    Member Since
+                  </p>
+
+                  <p className="mt-1 text-gray-700">
+                    {user?.createdAt
+                      ? new Date(user.createdAt).toLocaleDateString()
+                      : "-"}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs font-medium tracking-wider text-gray-400 uppercase">
+                    User ID
+                  </p>
+
+                  <p className="mt-1 text-gray-700 break-all">
+                    {user?._id || "-"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-col gap-3 mt-8">
+                <button className="w-full py-3 font-medium text-white duration-200 rounded cursor-pointer bg-primary hover:opacity-90">
+                  Logout
+                </button>
+
+                <button
+                  onClick={() => setIsProfileDropdownOpen(false)}
+                  className="w-full py-3 font-medium text-gray-700 duration-200 border border-gray-300 rounded cursor-pointer hover:bg-gray-50"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
