@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/assets";
 
@@ -17,6 +18,36 @@ const Menu = () => {
 
   const handleProfileClick = () => {
     setIsProfileDropdownOpen((prev) => !prev);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const promise = axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/user/logout`,
+        user._id,
+        {
+          withCredentials: true,
+        },
+      );
+
+      toast.promise(promise, {
+        loading: "Logging out...",
+        success: "Logout successful",
+        error: "Logout failed",
+      });
+
+      const response = await promise
+
+      if (response.data.success === false) {
+        throw new Error(response.data.message);
+      }
+
+      window.location.href = import.meta.env.VITE_FRONTEND_URL;
+    } catch (error) {
+      console.error(error);
+
+      toast.error(error?.response?.data?.message || "Failed to Logout");
+    }
   };
 
   return (
@@ -270,16 +301,13 @@ const Menu = () => {
 
       {isProfileDropdownOpen && (
         <>
-          {/* Overlay */}
           <div
-            className="fixed inset-0 z-[999] bg-black/40 backdrop-blur-[2px]"
+            className="fixed inset-0 z-999 bg-black/40 backdrop-blur-[2px]"
             onClick={() => setIsProfileDropdownOpen(false)}
           />
-
-          {/* Modal */}
-          <div className="fixed top-1/2 left-1/2 z-[1000] w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2">
+          
+          <div className="fixed top-1/2 left-1/2 z-1000 w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2">
             <div className="p-6 bg-white border border-gray-200 shadow-xl rounded-xl sm:p-8">
-              {/* Header */}
               <div className="text-center">
                 <div className="flex items-center justify-center w-20 h-20 mx-auto text-3xl font-semibold text-purple-500 bg-purple-100 rounded-full">
                   {user?.username?.charAt(0)?.toUpperCase() || "U"}
@@ -294,7 +322,6 @@ const Menu = () => {
                 </p>
               </div>
 
-              {/* User Info */}
               <div className="pt-6 mt-6 space-y-5 border-t border-gray-200">
                 <div>
                   <p className="text-xs font-medium tracking-wider text-gray-400 uppercase">
@@ -327,9 +354,8 @@ const Menu = () => {
                 </div>
               </div>
 
-              {/* Actions */}
               <div className="flex flex-col gap-3 mt-8">
-                <button className="w-full py-3 font-medium text-white duration-200 rounded cursor-pointer bg-primary hover:opacity-90">
+                <button onClick={handleLogout} className="w-full py-3 font-medium text-white duration-200 rounded cursor-pointer bg-primary hover:opacity-90">
                   Logout
                 </button>
 
