@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/assets";
 
@@ -36,7 +37,7 @@ const Menu = () => {
         error: "Logout failed",
       });
 
-      const response = await promise
+      const response = await promise;
 
       if (response.data.success === false) {
         throw new Error(response.data.message);
@@ -305,7 +306,7 @@ const Menu = () => {
             className="fixed inset-0 z-999 bg-black/40 backdrop-blur-[2px]"
             onClick={() => setIsProfileDropdownOpen(false)}
           />
-          
+
           <div className="fixed top-1/2 left-1/2 z-1000 w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2">
             <div className="p-6 bg-white border border-gray-200 shadow-xl rounded-xl sm:p-8">
               <div className="text-center">
@@ -355,7 +356,10 @@ const Menu = () => {
               </div>
 
               <div className="flex flex-col gap-3 mt-8">
-                <button onClick={handleLogout} className="w-full py-3 font-medium text-white duration-200 rounded cursor-pointer bg-primary hover:opacity-90">
+                <button
+                  onClick={handleLogout}
+                  className="w-full py-3 font-medium text-white duration-200 rounded cursor-pointer bg-primary hover:opacity-90"
+                >
                   Logout
                 </button>
 
