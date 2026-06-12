@@ -76,7 +76,8 @@ function SignIn() {
 
       handleReset();
 
-      navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
+      window.location.href = import.meta.env.VITE_DASHBOARD_URL;
+      // navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
     } catch (error) {
       console.error(error);
 
