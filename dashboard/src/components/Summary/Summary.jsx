@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../context/AppContext"
 
 const Summary = () => {
+  const { user } = useContext(AppContext)
+  
   return (
     <div className="w-full">
       <div className="mb-8">
-        <h6 className="text-2xl font-normal text-gray-700">Hi, User!</h6>
+        <h6 className="text-2xl font-normal text-gray-700">Hi, {user?.username || "User"}!</h6>
 
         <hr className="mt-5 border-gray-200" />
       </div>
