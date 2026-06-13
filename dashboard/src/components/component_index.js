@@ -8,6 +8,7 @@ import Orders from "./Orders/Orders";
 import Positions from "./Positions/Positions";
 import Summary from "./Summary/Summary";
 import WatchList from "./WatchList/WatchList";
+import VerticalGraph from "./VerticalGraph/VerticalGraph";
 
 export {
   TopBar,
@@ -20,4 +21,5 @@ export {
   Positions,
   Summary,
   WatchList,
+  VerticalGraph
 };
