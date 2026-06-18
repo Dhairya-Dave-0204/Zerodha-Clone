@@ -6,12 +6,14 @@ import {
   Pricing,
   Education,
   OpenAccount,
+  InvestEverything
 } from "../../../components/component_index";
 
 function Home() {
   return (
     <>
       <Hero />
+      <InvestEverything />
       <Awards />
       <Stats />
       {/* <Pricing /> */}

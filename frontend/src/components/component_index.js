@@ -17,6 +17,7 @@ import PricingHero from "./pricingHero/PricingHero";
 import Brokerage from "./brokerage/Brokerage";
 import SupportHero from "./supportHero/SupportHero";
 import RaiseTicket from "./ticket/RaiseTicket";
+import InvestEverything from "./investEverything/InvestEverything";
 
 export {
   OpenAccount,
@@ -38,4 +39,5 @@ export {
   Brokerage,
   SupportHero,
   RaiseTicket,
+  InvestEverything
 };
