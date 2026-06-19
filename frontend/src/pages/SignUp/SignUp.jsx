@@ -35,21 +35,86 @@ function SignUp() {
     });
   };
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const usernameRegex = /^[a-zA-Z0-9_]+$/;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !formData.fullName ||
-      !formData.username ||
-      !formData.email ||
-      !formData.password ||
-      !formData.confirmPassword
-    ) {
+    const fullName = formData.fullName.trim();
+    const username = formData.username.trim();
+    const email = formData.email.trim().toLowerCase();
+    const password = formData.password.trim();
+    const confirmPassword = formData.confirmPassword.trim();
+
+    // Required fields
+    if (!fullName || !username || !email || !password || !confirmPassword) {
       toast.error("All fields are required");
       return;
     }
 
-    if (formData.password !== formData.confirmPassword) {
+    // Full name validation
+    if (fullName.length < 3) {
+      toast.error("Full name must be at least 3 characters long");
+      return;
+    }
+
+    if (fullName.length > 50) {
+      toast.error("Full name cannot exceed 50 characters");
+      return;
+    }
+
+    // Username validation
+    if (username.length < 3) {
+      toast.error("Username must be at least 3 characters long");
+      return;
+    }
+
+    if (username.length > 20) {
+      toast.error("Username cannot exceed 20 characters");
+      return;
+    }
+
+    if (!usernameRegex.test(username)) {
+      toast.error("Username can only contain letters, numbers and underscores");
+      return;
+    }
+
+    // Email validation
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    // Password validation
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters long");
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter");
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter");
+      return;
+    }
+
+    if (!/[0-9]/.test(password)) {
+      toast.error("Password must contain at least one number");
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      toast.error("Password must contain at least one special character");
+      return;
+    }
+
+    // Confirm password
+    if (password !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
     }
@@ -60,10 +125,10 @@ function SignUp() {
       const promise = axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/user/register`,
         {
-          fullName: formData.fullName,
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
+          fullName,
+          username,
+          email,
+          password,
         },
         {
           withCredentials: true,
@@ -185,6 +250,8 @@ function SignUp() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                min={8}
+                max={18}
                 placeholder="Enter password"
                 className="w-full px-4 py-3 border border-gray-300 outline-none focus:border-primary"
               />
