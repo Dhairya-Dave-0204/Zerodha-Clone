@@ -28,7 +28,6 @@ const itemVariants = {
 function ProductRight() {
   return (
     <>
-      {/* Coin Section */}
       <motion.div
         className="px-4 py-12 sm:px-6 md:px-10 lg:px-16"
         variants={containerVariants}
@@ -37,7 +36,6 @@ function ProductRight() {
         viewport={{ once: true, amount: 0.25 }}
       >
         <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 lg:max-w-5xl lg:mx-auto">
-
           <motion.div
             className="flex justify-center lg:justify-start"
             initial={{ opacity: 0, scale: 0.96 }}
@@ -59,21 +57,17 @@ function ProductRight() {
             variants={itemVariants}
             className="flex flex-col max-w-xl gap-5 mx-auto text-center lg:text-left lg:mx-0"
           >
-            <h2 className="text-2xl font-medium sm:text-3xl">
-              Coin
-            </h2>
+            <h2 className="text-2xl font-medium sm:text-3xl">Coin</h2>
 
             <p className="text-sm leading-relaxed text-gray-500 sm:text-base md:text-lg">
-              Buy direct mutual funds online, commission-free, delivered directly
-              to your Demat account. Enjoy a seamless investing experience with
-              powerful tracking and portfolio insights.
+              Buy direct mutual funds online, commission-free, delivered
+              directly to your Demat account. Enjoy a seamless investing
+              experience with powerful tracking and portfolio insights.
             </p>
           </motion.div>
-
         </div>
       </motion.div>
 
-      {/* Kite Connect Section */}
       <motion.div
         className="px-4 py-12 sm:px-6 md:px-10 lg:px-16"
         variants={containerVariants}
@@ -82,7 +76,6 @@ function ProductRight() {
         viewport={{ once: true, amount: 0.25 }}
       >
         <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 lg:max-w-5xl lg:mx-auto">
-
           <motion.div
             variants={itemVariants}
             className="flex flex-col order-2 max-w-xl gap-5 mx-auto text-center lg:text-left lg:mx-0 lg:order-1"
@@ -114,7 +107,6 @@ function ProductRight() {
               className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-full"
             />
           </motion.div>
-
         </div>
       </motion.div>
     </>
