@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -36,8 +37,6 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validation
 
     if (
       !formData.fullName ||
@@ -93,9 +92,25 @@ function SignUp() {
 
   return (
     <div className="px-4 py-10 bg-gray-50 sm:px-6 md:px-10">
-      <div className="max-w-xl mx-auto">
+      <motion.div
+        className="max-w-xl mx-auto"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+      >
         <div className="p-6 bg-white border border-gray-200 shadow-sm sm:p-8">
-          <div className="mb-8 text-center">
+          <motion.div
+            className="mb-8 text-center"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+            }}
+          >
             <h1 className="text-3xl font-medium text-gray-800">
               Create Account
             </h1>
@@ -103,9 +118,18 @@ function SignUp() {
             <p className="mt-3 text-sm text-gray-500 sm:text-base">
               Join the platform and start your investing journey.
             </p>
-          </div>
+          </motion.div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <motion.form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.2,
+            }}
+          >
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-700">
                 Full Name
@@ -198,9 +222,17 @@ function SignUp() {
                 Reset
               </button>
             </div>
-          </form>
+          </motion.form>
 
-          <div className="pt-8 mt-8 text-center border-t border-gray-200">
+          <motion.div
+            className="pt-8 mt-8 text-center border-t border-gray-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.3,
+            }}
+          >
             <p className="text-sm text-gray-500">Already have an account?</p>
 
             <Link
@@ -209,9 +241,9 @@ function SignUp() {
             >
               Sign In
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
