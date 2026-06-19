@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ function SignIn() {
           ? { email: usernameOrEmail.trim() }
           : { username: usernameOrEmail.trim() }),
       };
-      
+
       const promise = axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/user/login`,
         payload,
@@ -89,20 +90,42 @@ function SignIn() {
 
   return (
     <div className="px-4 py-10 bg-gray-50 sm:px-6 md:px-10">
-      <div className="max-w-lg mx-auto">
+      <motion.div
+        className="max-w-lg mx-auto"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+      >
         <div className="p-6 bg-white border border-gray-200 shadow-sm sm:p-8">
-          {/* Header */}
-          <div className="mb-8 text-center">
+          <motion.div
+            className="mb-8 text-center"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+            }}
+          >
             <h1 className="text-3xl font-medium text-gray-800">Welcome Back</h1>
 
             <p className="mt-3 text-sm text-gray-500 sm:text-base">
               Sign in to access your dashboard and portfolio.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            {/* Username / Email */}
+          <motion.form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.2,
+            }}
+          >
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-700">
                 Username or Email
@@ -118,7 +141,6 @@ function SignIn() {
               />
             </div>
 
-            {/* Password */}
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-700">
                 Password
@@ -134,7 +156,6 @@ function SignIn() {
               />
             </div>
 
-            {/* Buttons */}
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
               <button
                 type="submit"
@@ -152,10 +173,17 @@ function SignIn() {
                 Reset
               </button>
             </div>
-          </form>
+          </motion.form>
 
-          {/* Footer */}
-          <div className="pt-8 mt-8 text-center border-t border-gray-200">
+          <motion.div
+            className="pt-8 mt-8 text-center border-t border-gray-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.3,
+            }}
+          >
             <p className="text-sm text-gray-500">Don't have an account?</p>
 
             <Link
@@ -164,9 +192,9 @@ function SignIn() {
             >
               Create Account
             </Link>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
