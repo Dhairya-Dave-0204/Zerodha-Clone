@@ -10,7 +10,7 @@ import Summary from "./Summary/Summary";
 import WatchList from "./WatchList/WatchList";
 import DashboardSkeleton from "./Dashboard Skeleton/DashboardSkeleton";
 import VerticalGraph from "./VerticalGraph/VerticalGraph";
-
+import DoughnutChart from "./DoughnutChart/DoughnutChart";
 export {
   TopBar,
   Dashboard,
@@ -24,4 +24,5 @@ export {
   WatchList,
   VerticalGraph,
   DashboardSkeleton,
+  DoughnutChart
 };
