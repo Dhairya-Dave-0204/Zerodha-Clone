@@ -11,6 +11,8 @@ import WatchList from "./WatchList/WatchList";
 import DashboardSkeleton from "./Dashboard Skeleton/DashboardSkeleton";
 import VerticalGraph from "./VerticalGraph/VerticalGraph";
 import DoughnutChart from "./DoughnutChart/DoughnutChart";
+import DashboardPageLoader from "./DashboardPageLoader/DashboardPageLoader";
+
 export {
   TopBar,
   Dashboard,
@@ -24,5 +26,6 @@ export {
   WatchList,
   VerticalGraph,
   DashboardSkeleton,
-  DoughnutChart
+  DoughnutChart,
+  DashboardPageLoader
 };

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { WatchList } from "../component_index";
-import DashboardPageLoader from "../DashboardPageLoader/DashboardPageLoader";
+import { DashboardPageLoader } from "../component_index";
 
 // Lazy Loaded Dashboard Pages
 const Summary = lazy(() => import("../Summary/Summary"));
