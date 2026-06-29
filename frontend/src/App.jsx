@@ -1,11 +1,9 @@
 import "./App.css";
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Navbar, Footer } from "./components/component_index";
+import { Navbar, Footer, PageLoader } from "./components/component_index";
 import { NotFound } from "./pages/page_index";
 import { Toaster } from "react-hot-toast";
-
-import PageLoader from "./components/PageLoader/PageLoader";
 
 // Lazy Loaded Pages
 const Home = lazy(() => import("./pages/landing/home/Home"));
