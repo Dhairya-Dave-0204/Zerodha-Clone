@@ -8,6 +8,7 @@ import Orders from "./Orders/Orders";
 import Positions from "./Positions/Positions";
 import Summary from "./Summary/Summary";
 import WatchList from "./WatchList/WatchList";
+import DashboardSkeleton from "./Dashboard Skeleton/DashboardSkeleton";
 import VerticalGraph from "./VerticalGraph/VerticalGraph";
 
 export {
@@ -21,5 +22,6 @@ export {
   Positions,
   Summary,
   WatchList,
-  VerticalGraph
+  VerticalGraph,
+  DashboardSkeleton,
 };

@@ -1,0 +1,325 @@
+.dashboard-skeleton {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.skeleton-box,
+.skeleton-logo,
+.skeleton-avatar,
+.skeleton-search,
+.skeleton-stock-name,
+.skeleton-price,
+.skeleton-heading,
+.skeleton-subheading,
+.skeleton-number,
+.skeleton-line {
+  position: relative;
+  overflow: hidden;
+  background: #eceff3;
+  border-radius: 6px;
+}
+
+.skeleton-box::after,
+.skeleton-logo::after,
+.skeleton-avatar::after,
+.skeleton-search::after,
+.skeleton-stock-name::after,
+.skeleton-price::after,
+.skeleton-heading::after,
+.skeleton-subheading::after,
+.skeleton-number::after,
+.skeleton-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+
+  animation: shimmer 1.8s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-navbar {
+  height: 72px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 30px;
+}
+
+.skeleton-market {
+  display: flex;
+
+  gap: 12px;
+}
+
+.small {
+  width: 70px;
+  height: 16px;
+}
+
+.skeleton-logo {
+  width: 42px;
+  height: 30px;
+
+  border-radius: 4px;
+}
+
+.skeleton-nav-links {
+  display: flex;
+
+  gap: 28px;
+}
+
+.nav {
+  width: 65px;
+  height: 16px;
+}
+
+.skeleton-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+}
+
+.profile-name {
+  width: 70px;
+  height: 16px;
+}
+
+.skeleton-body {
+  display: grid;
+
+  grid-template-columns: 370px 1fr;
+
+  min-height: calc(100vh - 72px);
+}
+
+.skeleton-sidebar {
+  border-right: 1px solid #e5e7eb;
+
+  padding: 20px;
+}
+
+.skeleton-search {
+  width: 100%;
+  height: 42px;
+
+  margin-bottom: 20px;
+}
+
+.skeleton-stock-list {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.skeleton-stock-row {
+  height: 56px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.skeleton-stock-name {
+  width: 90px;
+  height: 16px;
+}
+
+.skeleton-stock-values {
+  display: flex;
+
+  gap: 12px;
+
+  align-items: center;
+}
+
+.skeleton-price {
+  width: 45px;
+  height: 14px;
+}
+
+.skeleton-content {
+  padding: 36px 45px;
+}
+
+.skeleton-section {
+  margin-bottom: 40px;
+}
+
+.skeleton-heading.large {
+  width: 220px;
+  height: 34px;
+
+  margin-bottom: 24px;
+}
+
+.skeleton-subheading {
+  width: 130px;
+  height: 22px;
+
+  margin-bottom: 20px;
+}
+
+.skeleton-card {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  min-height: 130px;
+
+  border-top: 1px solid #ececec;
+
+  border-bottom: 1px solid #ececec;
+
+  padding: 28px 0;
+}
+
+.skeleton-card-left {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.skeleton-number.large {
+  width: 170px;
+  height: 52px;
+}
+
+.skeleton-line.medium {
+  width: 120px;
+  height: 16px;
+}
+
+.skeleton-divider {
+  width: 1px;
+
+  align-self: stretch;
+
+  background: #ececec;
+}
+
+.skeleton-card-right {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.skeleton-line.small {
+  width: 120px;
+  height: 16px;
+}
+
+@media (max-width: 1200px) {
+  .skeleton-body {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .skeleton-body {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .skeleton-sidebar {
+    border-right: none;
+
+    border-bottom: 1px solid #ececec;
+  }
+
+  .skeleton-content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-navbar {
+    padding: 0 16px;
+  }
+
+  .skeleton-nav-links {
+    display: none;
+  }
+
+  .skeleton-market {
+    display: none;
+  }
+
+  .profile-name {
+    display: none;
+  }
+
+  .skeleton-content {
+    padding: 18px;
+  }
+
+  .skeleton-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 24px;
+  }
+
+  .skeleton-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-sidebar {
+    padding: 16px;
+  }
+
+  .skeleton-content {
+    padding: 16px;
+  }
+
+  .skeleton-number.large {
+    width: 140px;
+
+    height: 42px;
+  }
+}
