@@ -18,8 +18,6 @@ const AppContextProvider = ({ children }) => {
         withCredentials: true,
       });
 
-      console.log(res.data);
-
       if (res.data.success) {
         setUser(res.data.data);
       } else {
