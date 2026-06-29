@@ -29,89 +29,89 @@ function SignIn() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const usernameOrEmail = formData.usernameOrEmail.trim();
-  const password = formData.password.trim();
+    const usernameOrEmail = formData.usernameOrEmail.trim();
+    const password = formData.password.trim();
 
-  if (!usernameOrEmail) {
-    toast.error("Username or Email is required");
-    return;
-  }
-
-  if (!password) {
-    toast.error("Password is required");
-    return;
-  }
-
-  const isEmail = emailRegex.test(usernameOrEmail);
-
-  if (usernameOrEmail.includes("@") && !isEmail) {
-    toast.error("Please enter a valid email address");
-    return;
-  }
-
-  if (!usernameOrEmail.includes("@")) {
-    if (usernameOrEmail.length < 3) {
-      toast.error("Username must be at least 3 characters long");
+    if (!usernameOrEmail) {
+      toast.error("Username or Email is required");
       return;
     }
 
-    if (usernameOrEmail.length > 20) {
-      toast.error("Username cannot exceed 20 characters");
+    if (!password) {
+      toast.error("Password is required");
       return;
     }
-  }
 
-  if (password.length < 8) {
-    toast.error("Password must be at least 8 characters long");
-    return;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  try {
-    setLoading(true);
+    const isEmail = emailRegex.test(usernameOrEmail);
 
-    const payload = {
-      password,
-      ...(isEmail
-        ? { email: usernameOrEmail }
-        : { username: usernameOrEmail }),
-    };
-
-    const promise = axios.post(
-      `${import.meta.env.VITE_BACKEND_URL}/user/login`,
-      payload,
-      {
-        withCredentials: true,
-      },
-    );
-
-    toast.promise(promise, {
-      loading: "Signing in...",
-      success: "Login successful",
-      error: "Login failed",
-    });
-
-    const response = await promise;
-
-    if (response.data.success === false) {
-      throw new Error(response.data.message);
+    if (usernameOrEmail.includes("@") && !isEmail) {
+      toast.error("Please enter a valid email address");
+      return;
     }
 
-    handleReset();
+    if (!usernameOrEmail.includes("@")) {
+      if (usernameOrEmail.length < 3) {
+        toast.error("Username must be at least 3 characters long");
+        return;
+      }
 
-    window.location.href = import.meta.env.VITE_DASHBOARD_URL;
-    // navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
-  } catch (error) {
-    console.error(error);
+      if (usernameOrEmail.length > 20) {
+        toast.error("Username cannot exceed 20 characters");
+        return;
+      }
+    }
 
-    toast.error(
-      error?.response?.data?.message || "Invalid credentials",
-    );
-  } finally {
-    setLoading(false);
-  }
-};
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters long");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const payload = {
+        password,
+        ...(isEmail
+          ? { email: usernameOrEmail }
+          : { username: usernameOrEmail }),
+      };
+
+      const promise = axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/user/login`,
+        payload,
+        {
+          withCredentials: true,
+        },
+      );
+
+      toast.promise(promise, {
+        loading: "Signing in...",
+        success: "Login successful",
+        error: "Login failed",
+      });
+
+      const response = await promise;
+
+      if (response.data.success === false) {
+        throw new Error(response.data.message);
+      }
+
+      handleReset();
+
+      window.location.href = import.meta.env.VITE_DASHBOARD_URL;
+      // navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
+    } catch (error) {
+      console.error(error);
+
+      toast.error(error?.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="px-4 py-10 bg-gray-50 sm:px-6 md:px-10">
