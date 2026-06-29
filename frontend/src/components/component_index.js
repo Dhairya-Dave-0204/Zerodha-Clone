@@ -18,6 +18,7 @@ import Brokerage from "./brokerage/Brokerage";
 import SupportHero from "./supportHero/SupportHero";
 import RaiseTicket from "./ticket/RaiseTicket";
 import InvestEverything from "./investEverything/InvestEverything";
+import PageLoader from "./pageLoader/PageLoader";
 
 export {
   OpenAccount,
@@ -39,5 +40,6 @@ export {
   Brokerage,
   SupportHero,
   RaiseTicket,
-  InvestEverything
+  InvestEverything,
+  PageLoader
 };
