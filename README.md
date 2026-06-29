@@ -240,7 +240,7 @@ npm run dev
 
 ---
 
-# Environment Variables
+# Environment Variables (For development and local execution)
 
 Backend
 
