@@ -9,7 +9,7 @@ import Stats from "./stats/Stats";
 import SignUp from "./signup/SignUp";
 import AboutHero from "./aboutHero/AboutHero";
 import Teams from "./teams/Teams";
-import ProductHero from "./productHero/productHero";
+import ProductHero from "./productHero/ProductHero";
 import ProductLeft from "./productLeft/ProductLeft";
 import ProductRight from "./productRight/ProductRight";
 import Universe from "./universe/Universe";
