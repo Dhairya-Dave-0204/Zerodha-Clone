@@ -102,7 +102,8 @@ function SignIn() {
 
       handleReset();
 
-      window.location.href = import.meta.env.VITE_DASHBOARD_URL;
+      console.log("user logged in")
+      // window.location.href = import.meta.env.VITE_DASHBOARD_URL;
       // navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
     } catch (error) {
       console.error(error);
