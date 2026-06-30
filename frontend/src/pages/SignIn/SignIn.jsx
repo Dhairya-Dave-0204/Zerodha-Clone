@@ -102,8 +102,9 @@ function SignIn() {
 
       handleReset();
 
-      console.log("user logged in")
-      // window.location.href = import.meta.env.VITE_DASHBOARD_URL;
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      window.location.href = import.meta.env.VITE_DASHBOARD_URL;
       // navigate(`${import.meta.env.VITE_DASHBOARD_URL}`);
     } catch (error) {
       console.error(error);
